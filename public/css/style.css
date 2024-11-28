@@ -1,0 +1,473 @@
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+      
+      .navbar {
+          position: sticky; /* Makes the navbar sticky */
+          top: 0;          /* Sticks it to the top of the viewport */
+          z-index: 1000;   /* High z-index to stay above other content */
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: white; /* Background color of the navbar */
+          padding: 20px 50px; /* Increased padding for height */
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+          }
+  
+      .navbar .logo img {
+        height: 60px; /* Set the height for the logo image */
+      }
+  
+      /* Style the search bar */
+        .navbar .search-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            background-color: #e1dcdc; /* Light background similar to the image */
+            border-radius: 30px; /* Rounded corners */
+            padding: 10px 15px; /* Padding for space */
+            margin: 0 50px;
+            max-width: 400px; /* Restrict the width */
+            position: relative;
+        }
+        
+        /* Style the input field */
+        .navbar input[type="text"] {
+            border: none; /* Remove border */
+            box-shadow: none; /* Ensure no shadow appears as a border */
+            background: transparent; /* Transparent background */
+            padding: 10px 0; /* Padding inside input */
+            font-size: 16px;
+            width: 100%; /* Full width */
+            outline: none; /* Remove outline */
+            color: #333;
+        }
+        
+        /* Left search icon (magnifying glass) */
+        .search-left-icon {
+            margin-right: 10px;
+            fill: #333; /* Dark icon */
+        }
+        
+        
+        /* Adjust icon sizes */
+        .navbar .search-bar svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+      .navbar ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+      .navbar ul li {
+        display: inline;
+      }
+      .navbar ul li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 16px;
+        padding: 8px;
+        transition: color 0.3s;
+      }
+      .navbar ul li a:hover {
+        color: #d34522;
+      }
+  
+      /* Centered Search Bar */
+      .navbar .search-bar {
+        display: flex;
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center the search bar */
+        flex: 1; /* Allow it to grow */
+        margin: 0 50px; /* Add margin to the left and right for spacing */
+      }
+  
+      .navbar input[type="text"] {
+        padding: 8px 10px; /* Padding inside the search box */
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 300px; /* Fixed width for the search box */
+      }
+  
+      /* Search Icon */
+      .navbar .search-bar .search-icon {
+        margin-left: 10px; /* Space between the search box and the icon */
+        cursor: pointer;
+      }
+  
+      /* Icons on the Right */
+      .navbar .icons {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+  
+      .navbar .icons svg {
+        width: 25px;
+        height: 25px;
+        fill: #333;
+        cursor: pointer;
+        transition: fill 0.3s;
+      }
+  
+      .navbar .icons svg:hover {
+        fill: #d34522;
+      }
+
+/* Style for the location icon and text */
+.location-icon {
+    display: flex; /* Aligns text and icon horizontally */
+    align-items: center; /* Vertically aligns the text with the icon */
+    gap: 4px; /* Adjust space between the text and icon */
+    position: relative; /* Allows for positioning of the hover effect */
+    cursor: pointer;
+    transition: color 0.3s; /* Smooth transition for text color */
+}
+
+/* Rectangle background for hover effect */
+.location-icon::before {
+    content: '';
+    position: absolute;
+    top: -12px; /* Increase to make the top thicker */
+    left: -12px; /* Increase to make the left thicker */
+    right: -12px; /* Increase to make the right thicker */
+    bottom: -12px; /* Increase to make the bottom thicker */
+    background-color: rgba(211, 69, 34, 0.1); /* Light grey background */
+    border-radius: 50px; /* Set to 50% for a circular shape */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s; /* Smooth transition */
+    z-index: -1; /* Send behind text and icon */
+}
+
+/* Adjust icon size */
+.location-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: #333; /* Icon color */
+    transition: fill 0.3s; /* Smooth transition for the icon */
+}
+
+/* Hover effect for the location icon text and icon */
+.location-icon:hover span {
+    color: #d34522; /* Change text color on hover */
+}
+
+.location-icon:hover svg {
+    fill: #d34522; /* Change icon color on hover */
+}
+
+.location-icon:hover::before {
+    opacity: 1; /* Show background on hover */
+}
+
+    
+        /* Positioning the product count badge */
+            .cart-icon {
+                position: relative; /* Make it relative to position the badge */
+            }
+            
+            .cart-count {
+                position: absolute;
+                top: -10px; /* Adjust the position */
+                right: -10px; /* Adjust the position */
+                background-color: #d34522; /* Background color for the badge */
+                color: white; /* Text color */
+                border-radius: 50%; /* Make it circular */
+                padding: 2px 6px; /* Padding for the badge */
+                font-size: 12px; /* Font size */
+                font-weight: bold; /* Bold font */
+            }
+
+                    /* Footer Section */
+        .footer {
+            background-color: #e25e3d;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 20px; /* Spacing between sections */
+        }
+
+        .footer h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 5px;
+        }
+
+        .footer ul li a {
+            color: #e0e0e0; /* Lighter link color */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer ul li a:hover {
+            color: #ffffff; /* Hover effect */
+        }
+
+        .footer .contact {
+            font-size: 14px;
+            text-align: center; /* Centering contact section */
+            margin-top: 20px; /* Space above contact section */
+        }
+
+        .footer .contact a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        .footer .social-icons a {
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+        .footer .social-icons img {
+            width: 30px;
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px); /* Adds a subtle blur to the background */
+          }
+          
+          .modal-content {
+            background-color: #fff;
+            padding: 40px; /* Increased padding */
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px; /* Increased max width for bigger modal */
+            text-align: left; /* Align text to the left */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Softer shadow */
+            position: relative;
+            transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth open/close animation */
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          
+          .modal-content.show {
+            opacity: 1;
+            transform: scale(1); /* Open animation */
+          }
+          
+          .modal-content h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 700;
+            font-family: 'Helvetica Neue', sans-serif; /* Cleaner modern font */
+          }
+          
+          .modal-content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 400;
+            line-height: 1.6;
+          }
+          
+          .modal-content input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            font-size: 14px;
+            color: #333;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            outline: none;
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+          }
+          
+          .modal-content input:focus {
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            border-color: #d34522;
+          }
+          
+          .modal-content button {
+            background-color: #d34522;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+          }
+          
+          .modal-content button:hover {
+            background-color: #d34522;
+            transform: translateY(-2px); /* Slight upward hover effect */
+          }
+          
+          .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #bbb;
+            transition: color 0.3s ease;
+          }
+          
+          .close:hover {
+            color: #333;
+          } 
+          
+          /* Results Container */
+          #resultsContainer {
+            margin-top: 15px;
+          }
+          
+          /* Individual Store Item */
+          .store-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center; /* Align items vertically */
+            cursor: pointer; /* Change cursor to pointer for selection */
+          }
+          
+          .store-item:hover {
+            background-color: #f1f1f1; /* Change background on hover for better UX */
+          }
+          
+          .store-item img.store-icon {
+            margin-right: 10px; /* Space between icon and text */
+            width: 24px; /* Set a fixed width for all icons */
+            height: 24px; /* Set a fixed height for all icons */
+          }
+          
+          .store-item-content {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            text-align: left; /* Align text to the left */
+          }
+          
+          .store-item strong {
+            font-size: 16px;
+            color: #333;
+          }
+          
+          
+          /* User Icon Styling */
+.user-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between balance and icon */
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s; /* Smooth transition for color */
+}
+
+/* Hover Effect for Circular Background */
+.user-icon::before {
+  content: '';
+  position: absolute;
+  top: -12px; /* Increase to make the top thicker */
+  left: -12px; /* Increase to make the left thicker */
+  right: -12px; /* Increase to make the right thicker */
+  bottom: -12px; /* Increase to make the bottom thicker */
+  background-color: rgba(211, 69, 34, 0.1); /* Light grey background */
+  border-radius: 50px; /* Set to 50% for a circular shape */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s; /* Smooth transition */
+  z-index: -1; /* Send behind text and icon */
+}
+
+/* User Icon SVG */
+.user-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: #333; /* Default color */
+  transition: fill 0.3s; /* Smooth icon color change */
+}
+
+/* Hover Effect */
+.user-icon:hover span,
+.user-icon:hover svg {
+  color: #d34522; /* Change text color on hover */
+  fill: #d34522; /* Change icon color on hover */
+}
+
+.user-icon:hover::before {
+  opacity: 1; /* Show circular background on hover */
+}
+
+            
+    /* Responsive Styles for Tablets and Phones */
+    @media (max-width: 1024px) {
+        .navbar {
+            padding: 15px 30px; /* Reduced padding for smaller screens */
+        }
+    
+        .navbar ul {
+            gap: 20px; /* Reduced gap between navbar items */
+        }
+    
+        .navbar .search-bar {
+            display: flex; /* Show the search bar on tablets */
+        }
+    
+        .navbar input[type="text"] {
+            width: 100%; /* Make search bar full width */
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .navbar {
+            padding: 10px 20px; /* Reduced padding for mobile */
+        }
+    
+        .navbar ul {
+            gap: 15px; /* Further reduced gap between items */
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items */
+        }
+    
+        .navbar .search-bar {
+            display: none; /* Hide search bar on mobile */
+        }
+
+    }
+    
+  

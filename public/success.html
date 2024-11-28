@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>BINGKAS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/font-awesome.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/bklogo1.png">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+	<style>
+		.logo_agile img {
+			max-width: 60%;
+			height: auto;
+			display: block; /* Ensures no extra space below the image */
+		}
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+		.product img {
+			width: 100%;
+			height: auto;
+		}
+
+		.modal-cart {
+			max-width: 600px;
+			margin: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- header-bot-->
+	<div class="header-bot">
+		<div class="header-bot_inner_wthreeinfo_header_mid">
+			<!-- header-bot-->
+			<div class="col-md-4 logo_agile">
+				<h1>
+					<a href="success.html">
+						<img src="images/bk.png" alt=" ">
+					</a>
+				</h1>
+			</div>
+			<!-- header-bot -->
+			<div class="col-md-8 header">
+				<!-- header lists -->
+				<ul>
+					<li>
+						<a href="success.html">
+							<span class="fa fa-home" aria-hidden="true"></span> Home </a>
+					</li>
+					<li>
+						<a href="navigation.html">
+							<span class="fa fa-map-marker" aria-hidden="true"></span>Shop Locator</a>
+					</li>
+					<li>
+						<a href="shop.html">
+							<span class="fa fa-shopping-bag" aria-hidden="true"></span>Shop</a>
+					</li>
+					<li>
+						<a href="account.html">
+							<span class="fa fa-user-circle-o" aria-hidden="true"></span> Profile </a>
+					</li>
+					<li>
+						<a href="#" onclick="signOut()">
+							<span class="fa fa-sign-out" aria-hidden="true"></span> Sign out </a>
+					</li>
+				</ul>
+				<!-- //header lists -->
+				<!-- search -->
+                <div class="agileits_search">
+                    <form action="#" method="post">
+                        <input name="Search" type="search" placeholder="How can we help you today?" required="">
+                        <button type="submit" class="btn btn-default" aria-label="Left Align">
+                            <span class="fa fa-search" aria-hidden="true"> </span>
+                        </button>
+                    </form>
+                </div>
+                <div class="top_nav_right">
+                    <div class="cart cart box_1">
+                        <button class="w3view-cart" onclick="window.location.href='cart.html';">
+                            <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+                
+				<!-- //cart details -->
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+
+	<!-- Bootstrap Carousel -->
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+			<li data-target="#myCarousel" data-slide-to="3"></li>
+		</ol>
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<img src="images/klpic3.png" alt="Image 1">
+				<div class="container">
+				</div>
+			</div>
+			<div class="item">
+				<img src="images/klpic21.png" alt="Image 2">
+			</div>
+			<div class="item">
+				<img src="images/klpic222.png" alt="Image 3">
+			</div>
+			<div class="item">
+				<img src="images/klpic4.png" alt="Image 4">
+				<div class="container">
+					
+				</div>
+			</div>
+		</div>
+
+		<!-- Left and right controls -->
+		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+    
+<!-- top Products -->
+<div class="ads-grid">
+    <div class="container">
+        <!-- title heading -->
+        <h3 class="tittle-w3l">Our Top Products
+            <span class="heading-style"></span>
+        </h3>
+        <!-- //title heading -->
+        <div class="container-fluid mt-4">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Filter By</h3>
+                    <div class="form-group">
+                        <label for="category-filter">Category</label>
+                        <select class="form-control" id="category-filter">
+                            <option value="">All Categories</option>
+                            <option value="Tropical Fruits">Tropical Fruits</option>
+                            <option value="Citrus & Oranges">Citrus & Oranges</option>
+                            <option value="Berries & Grapes">Berries & Grapes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="brand-filter">Brand</label>
+                        <select class="form-control" id="brand-filter">
+                            <option value="">All Brands</option>
+                            <option value="LOTUS">LOTUS</option>
+                            <option value="KK SpeedMart">KK SpeedMart</option>
+                            <option value="99 Mart">99 Mart</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="price-range">Price Range</label>
+                        <input type="range" class="custom-range" id="price-range" min="0" max="100" step="1" oninput="updatePriceRange()">
+                        <div class="d-flex justify-content-between">
+                            <span id="min-price">0</span>
+                            <span id="max-price">100</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9 agileinfo-ads-display">
+                    <div class="wrapper">
+                        <div class="product-sec1">
+                            <h3 class="heading-tittle">Fruits</h3>
+                            <div id="product-container" class="row"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+    var products = []; // Initialize the products array
+    var cart = [];
+
+    document.addEventListener('DOMContentLoaded', () => {
+        fetchProducts();
+        document.getElementById('category-filter').addEventListener('change', applyFilters);
+        document.getElementById('brand-filter').addEventListener('change', applyFilters);
+        document.getElementById('price-range').addEventListener('input', updatePriceRange);
+    });
+
+    async function fetchProducts() {
+        try {
+            const response = await fetch('/api/products');
+            products = await response.json();
+            displayProducts(products);
+        } catch (error) {
+            console.error('Error fetching products:', error);
+        }
+    }
+
+    function displayProducts(products) {
+        const container = document.getElementById('product-container');
+        container.innerHTML = '';
+
+        products.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.className = 'col-md-4 product-men';
+
+            const productContent = `
+                <div class="product">
+                    <img src="${product.image}" alt="${product.name}">
+                    <div class="item-info-product">
+                        <h4>${product.name}</h4>
+                        <div class="info-product-price">
+                            <span class="item_price">${product.price}</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="addToCart('${product._id}', '${product.name}', ${product.price}, '${product.image}')">Add to Cart</button>
+                    </div>
+                </div>
+            `;
+            productCard.innerHTML = productContent;
+            container.appendChild(productCard);
+        });
+    }
+
+    function applyFilters() {
+        const categoryFilter = document.getElementById('category-filter').value;
+        const brandFilter = document.getElementById('brand-filter').value;
+        const priceRange = document.getElementById('price-range').value;
+
+        const filteredProducts = products.filter(product => {
+            return (!categoryFilter || product.category === categoryFilter) &&
+                (!brandFilter || product.brand === brandFilter) &&
+                (!priceRange || product.price <= priceRange);
+        });
+
+        displayProducts(filteredProducts);
+    }
+
+    function updatePriceRange() {
+        const priceRange = document.getElementById('price-range').value;
+        document.getElementById('max-price').textContent = priceRange;
+        applyFilters();
+    }
+
+    function addToCart(productId, productName, productPrice, productImage) {
+        // Make an AJAX request to your server to add the product to the cart
+        fetch('/add-to-cart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ productId: productId, productName: productName, productPrice: productPrice, productImage: productImage }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Product added to cart successfully!');
+            } else {
+                alert('Failed to add product to cart.');
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+
+
+
+    function signOut() {
+        // Clear any user authentication data from session or local storage
+        sessionStorage.removeItem('userToken'); // Example: if using session storage
+        localStorage.removeItem('userData'); // Example: if using local storage
+
+        // Redirect the user to the sign-in page or home page after sign out
+        window.location.href = 'index.html'; // Replace 'sign-in.html' with your actual sign-in page URL
+        alert('You have successfully signed out.');
+    }
+</script>
+
+
+</body>
+
+</html>

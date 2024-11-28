@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/bklogo1.png">
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/checkout.css" rel="stylesheet" type="text/css" media="all" />
+  <title>BINGKAS</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+
+      <!-- Navbar Section -->
+  <div class="navbar">
+    <div class="logo">
+      <a href="bingkas.html">
+          <img src="images/bk.png" alt="Logo">
+      </a>
+  </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="search-left-icon">
+        <path d="M10 2a8 8 0 016.32 12.906l4.387 4.387-1.415 1.415-4.387-4.387A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z" />
+        </svg>
+        <input type="text" placeholder="What are you looking for?">
+    </div>
+  
+
+    <!-- Icons -->
+    <div class="icons">
+        <div class="location-icon">
+          <!-- Location Icon with "Select Store" Text -->
+          <span id="selectStore">Select Store</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" id="locationIcon">
+            <path d="M12 2a7 7 0 017 7c0 4.243-5.02 10.257-6.36 11.74a.995.995 0 01-1.28 0C10.02 19.257 5 13.243 5 9a7 7 0 017-7zm0 2a5 5 0 00-5 5c0 2.692 2.94 6.942 5 9.292C14.06 15.942 17 11.692 17 9a5 5 0 00-5-5zm0 3a2 2 0 110 4 2 2 0 010-4z"/>
+          </svg>
+        </div>
+        
+
+      <!-- Shopping Bag Icon with Product Count Badge -->
+        <a href="cart.html" class="cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M12 2a4 4 0 014 4h2.5a2.5 2.5 0 012.495 2.336L21 8.5v11a2.5 2.5 0 01-2.336 2.495L18.5 22h-13a2.5 2.5 0 01-2.495-2.336L3 19.5v-11A2.5 2.5 0 015.336 6.005L5.5 6H8a4 4 0 014-4zm7 6H5.5a.5.5 0 00-.492.41L5 8.5v11a.5.5 0 00.41.492l.09.008h13a.5.5 0 00.492-.41L19 19.5V8z"/>
+            </svg>
+            <!-- Badge for showing the product count -->
+            <span class="cart-count">0</span>
+        </a>
+  
+
+      <!-- User Icon -->
+      <div class="user-icon">
+        <span id="user-balance" class="balance-amount">RM 0</span>
+        <a href="account.html">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M12 2a7 7 0 11-.001 14.001A7 7 0 0112 2zm0 2a5 5 0 100 10 5 5 0 000-10zM4.75 16h14.5c.414 0 .75.336.75.75v1.75c0 2.071-3.048 3.5-8 3.5s-8-1.429-8-3.5v-1.75c0-.414.336-.75.75-.75z" />
+          </svg>
+        </a>
+        </div>
+    </div>
+  </div>
+
+    <!-- Modal -->
+    <div id="locationModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeModal">&times;</span>
+          <h2>Welcome!</h2>
+          <p>Please set your pick up area</p>
+          <input type="text" id="postcodeInput" placeholder="Key in your Postcode">
+          <button id="searchButton">Search</button>
+          <div id="resultsContainer"></div> <!-- Container for displaying results -->
+        </div>
+      </div>
+
+  <div class="container">
+    <!-- Pick-up Section -->
+    <div class="pick-up-section">
+      <h2>Pick-up at</h2>
+      <div class="location-details">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 12.9 7 12.9s7-7.7 7-12.9c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/>
+        </svg>
+        <div id="storeInfo">
+          <!-- Store details will be dynamically inserted here -->
+          <p><strong>Loading...</strong></p>
+          
+        </div>
+      </div>
+      
+      <div class="pick-up-options">
+        <h2>Pick-up Options</h2>
+        <div class="radio-option standard-option">
+            <input type="radio" id="standard" name="pickup" checked onclick="toggleCalendar(false)">
+            <label for="standard">Standard <span style="color: #888;">20 mins</span></label>
+        </div>
+        <div class="radio-option">
+            <input type="radio" id="scheduled" name="pickup" onclick="toggleCalendar(true)">
+            <label id="scheduled-label" for="scheduled">
+                Scheduled <span style="color: #888;">Select a date and time</span>
+                <span id="edit-icon-container" style="display: none;"></span> <!-- Container for the edit icon -->
+            </label>
+        </div>
+    </div>
+    
+        <!-- Calendar Picker -->
+        <div class="calendar" id="calendar">
+            <h3>Select Date & Time</h3>
+            <input id="pick-datetime" type="text" class="datetime-input" placeholder="Select Date & Time" readonly>
+            <button class="btn" id="ok-button">OK</button> <!-- Added OK button -->
+        </div>
+
+      <!-- Personal Details -->
+      <div class="personal-details">
+        <h2>Personal Details</h2>
+        <p><strong></strong></p>
+        <p></p> 
+        <p></p>
+        </div>
+
+        <button class="btn confirm-btn" id="placeOrderButton">Place Pick-up Order</button>
+      </div>
+
+    <!-- Order Summary Section -->
+    <div class="order-summary">
+      <h2>Your Order</h2>
+      <!-- Existing order summary items -->
+      <div class="item total">
+          <p>Total</p>
+          <p id="total">RM 0.00</p>
+      </div>
+      <div>
+          <p>Remaining Balance</p>
+          <p id="remaining-balance">RM 0.00</p>
+      </div>
+      
+  </div>
+  
+
+
+    <div id="confirmationModal" class="cm-modal">
+      <div class="confirmation-container">
+          <img src="https://img.icons8.com/ios/50/000000/checkmark.png" alt="Checkmark">
+          <h1>THANK YOU FOR YOUR PURCHASE</h1>
+          <p>An email has been sent out to your email for review.</p>
+          <div class="buttons">
+              <button class="continue-button" onclick="continueShopping()">Continue Shopping</button>
+          </div>
+      </div>
+  </div>
+
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="js/script.js"></script> 
+  <script src="js/checkout.js"></script> 
+
+</body>
+</html>

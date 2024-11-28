@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/bklogo1.png">
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/bingkas.css" rel="stylesheet" type="text/css" media="all" />
+  <title>BINGKAS</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+    
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 15px auto;
+            background-color: #fff;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+    
+        .container:hover {
+            transform: translateY(-5px);
+        }
+    
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: linear-gradient(-135deg, #d34522, #f2a622);
+            padding: 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+            transition: background 0.3s;
+        }
+    
+        .sidebar:hover {
+            background: linear-gradient(-135deg, #f2a622, #d34522);
+        }
+    
+        .sidebar img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #ff5722;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+    
+        .sidebar img:hover {
+            transform: scale(1.1);
+        }
+    
+        .sidebar h3 {
+            margin: 10px 0;
+            font-size: 1.5em;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+    
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+    
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+    
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1em;
+            transition: color 0.3s, transform 0.3s;
+        }
+    
+        .sidebar ul li a:hover {
+            color: #ffcc00;
+            transform: scale(1.05);
+        }
+    
+        /* Profile and Orders Content */
+        .profile-content, .orders-section, .expenses-content, .change-password-section {
+            flex: 1;
+            padding: 30px;
+            text-align: left;
+            transition: opacity 0.3s;
+        }
+    
+        h2 {
+            margin-bottom: 20px;
+            text-align: left;
+            font-size: 1.8em;
+            color: #343a40;
+        }
+    
+        .form-group {
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+            text-align: left;
+        }
+    
+        .form-group:hover {
+            transform: translateY(-2px);
+        }
+    
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+    
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        .form-group input:focus {
+            border-color: #ff5722;
+            outline: none;
+            box-shadow: 0 0 5px rgba(255, 87, 34, 0.5);
+        }
+    
+        .form-group a {
+            color: #ff5722;
+            font-size: 0.9em;
+            transition: color 0.3s;
+        }
+    
+        .form-group a:hover {
+            text-decoration: underline;
+        }
+    
+        /* Orders Section */
+        .orders-tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+    
+        .orders-tab {
+            font-weight: bold;
+            padding: 10px;
+            cursor: pointer;
+            color: #777;
+            transition: color 0.3s, transform 0.3s;
+        }
+    
+        .orders-tab.active {
+            color: #00bcd4;
+            border-bottom: 2px solid #00bcd4;
+        }
+    
+        .orders-tab:hover {
+            color: #00bcd4;
+            transform: scale(1.05);
+        }
+    
+        .orders-content {
+            text-align: center;
+            margin-top: 20px;
+            transition: opacity 0.3s;
+        }
+    
+        .orders-content img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+    
+        .orders-content p {
+            color: #777;
+        }
+    
+        /* Change Password */
+        .password-requirements {
+            margin-top: 10px;
+            font-size: 0.8em;
+            color: #555;
+        }
+    
+        button {
+            background: linear-gradient(-135deg, #d34522, #f2a622);
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    
+        button:hover {
+            background: linear-gradient(-135deg, #f2a622, #d34522);
+            transform: scale(1.05);
+        }
+    
+        button:focus {
+            outline: none;
+        }
+
+        /* Order Card Styles */
+.order-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+}
+
+/* Header and Status Styles */
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 12px;
+}
+.status {
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+.status.pending {
+    color: #ff9800;
+    background-color: #fff3e0;
+}
+.status.completed {
+    color: #4caf50;
+    background-color: #e8f5e9;
+}
+
+/* Details and Product List */
+.order-details p {
+    margin: 4px 0;
+    color: #666;
+}
+.total-amount {
+    font-weight: bold;
+    color: #666;
+}
+.order-products {
+    margin-top: 12px;
+}
+.order-products h4 {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+
+/* Product List Styling */
+.product-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.product-item:last-child {
+    border-bottom: none;
+}
+.product-name {
+    font-weight: 500;
+    color: #666;
+}
+.product-total {
+    color: #666;
+}
+
+/* Order Details and Products Alignment */
+.order-details,
+.order-products {
+    text-align: left; /* Ensures all text aligns to the left */
+}
+
+/* Additional padding and margin for readability */
+.order-details p,
+.order-products h4 {
+    margin-left: 0; /* Removes any default left margin */
+    padding-left: 0; /* Removes any default left padding */
+}
+
+/* Optional: Adjusting margins for consistent spacing */
+.order-details p {
+    margin: 4px 0;
+}
+.order-products h4 {
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+/* Product List Styling */
+.product-list {
+    padding-left: 0; /* Ensures the list is flush with the left */
+    list-style-position: inside; /* Ensures list items are left-aligned */
+}
+
+
+
+
+/* The Logout Modal (background) */
+.logout-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+}
+
+/* Logout Modal Content */
+.logout-modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px; /* Limit width */
+    text-align: center; /* Centered text */
+}
+
+/* Close button */
+.logout-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logout-close:hover,
+.logout-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Button styles */
+.logout-modal-buttons {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the buttons */
+    margin-top: 20px; /* Space above buttons */
+}
+
+.logout-modal-buttons button {
+    padding: 10px 20px; /* Padding for buttons */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, border 0.3s; /* Smooth transitions */
+    margin: 0 10px; /* Space between buttons */
+}
+
+.btn-cancel {
+    background-color: white; /* White background for cancel button */
+    color: #ffffff; /* Text color */
+    border: 2px solid #ccc; /* Light gray border */
+}
+
+.btn-cancel:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+}
+
+.btn-signout {
+    background-color: orange; /* Orange background for sign out button */
+    color: white; /* White text */
+}
+
+.btn-signout:hover {
+    background-color: darkorange; /* Darker orange on hover */
+}
+
+    
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-self: center;
+        width: 90%; /* Set width to 90% */
+        max-width: 600px; /* Optional: Set a max-width for better control */
+        margin: 5px auto; /* Center the container with auto margins */
+        padding: 0; /* Remove padding for smaller screens */
+    }
+
+    .sidebar {
+        width: 100%; /* Make sidebar full width */
+        padding: 15px; /* Adjust padding */
+    }
+
+    .profile-content,
+    .orders-section,
+    .expenses-content,
+    .change-password-section {
+        padding: 20px; /* Adjust padding for content sections */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Adjust heading size for better fit */
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 10px; /* Adjust padding for form inputs */
+    }
+
+    button {
+        padding: 10px; /* Adjust button padding */
+    }
+}
+
+    </style>
+    
+</head>
+
+<body>
+      <!-- Navbar Section -->
+  <div class="navbar">
+    <div class="logo">
+      <a href="bingkas.html">
+          <img src="images/bk.png" alt="Logo">
+      </a>
+  </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="search-left-icon">
+        <path d="M10 2a8 8 0 016.32 12.906l4.387 4.387-1.415 1.415-4.387-4.387A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z" />
+        </svg>
+        <input type="text" placeholder="What are you looking for?">
+    </div>
+  
+
+    <!-- Icons -->
+    <div class="icons">
+        <div class="location-icon">
+          <!-- Location Icon with "Select Store" Text -->
+          <span id="selectStore">Select Store</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" id="locationIcon">
+            <path d="M12 2a7 7 0 017 7c0 4.243-5.02 10.257-6.36 11.74a.995.995 0 01-1.28 0C10.02 19.257 5 13.243 5 9a7 7 0 017-7zm0 2a5 5 0 00-5 5c0 2.692 2.94 6.942 5 9.292C14.06 15.942 17 11.692 17 9a5 5 0 00-5-5zm0 3a2 2 0 110 4 2 2 0 010-4z"/>
+          </svg>
+        </div>
+
+      <!-- Shopping Bag Icon with Product Count Badge -->
+        <a href="cart.html" class="cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M12 2a4 4 0 014 4h2.5a2.5 2.5 0 012.495 2.336L21 8.5v11a2.5 2.5 0 01-2.336 2.495L18.5 22h-13a2.5 2.5 0 01-2.495-2.336L3 19.5v-11A2.5 2.5 0 015.336 6.005L5.5 6H8a4 4 0 014-4zm7 6H5.5a.5.5 0 00-.492.41L5 8.5v11a.5.5 0 00.41.492l.09.008h13a.5.5 0 00.492-.41L19 19.5V8z"/>
+            </svg>
+            <!-- Badge for showing the product count -->
+            <span class="cart-count">0</span>
+        </a>
+  
+
+       <!-- User Icon -->
+       <div class="user-icon">
+        <span id="user-balance" class="balance-amount">RM 0</span>
+        <a href="account.html">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M12 2a7 7 0 11-.001 14.001A7 7 0 0112 2zm0 2a5 5 0 100 10 5 5 0 000-10zM4.75 16h14.5c.414 0 .75.336.75.75v1.75c0 2.071-3.048 3.5-8 3.5s-8-1.429-8-3.5v-1.75c0-.414.336-.75.75-.75z" />
+          </svg>
+        </a>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="locationModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Welcome!</h2>
+      <p>Please set your pick up area</p>
+      <input type="text" id="postcodeInput" placeholder="Key in your Postcode">
+      <button id="searchButton">Search</button>
+      <div id="resultsContainer"></div> <!-- Container for displaying results -->
+    </div>
+  </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <img src="https://publish-p35803-e190640.adobeaemcloud.com/content/dam/aem-cplotusonlinecommerce-project/my/images/medias/images/avatar-default.svg" alt="Profile Image">
+            <h3 id="username-display">waytheking</h3> <!-- Added id here -->
+            <ul>
+                <li><a href="#" id="profile-link">Profile</a></li>
+                <li><a href="#" id="all-orders-link">All Orders</a></li>
+                <li><a href="#" id="expenses-link">My Expenses</a></li>
+                <li><a href="#" id="change-password-link">Change Password</a></li>
+                <li><a href="#" id="logout-link">Logout</a></li>
+            </ul>
+        </div>
+        
+
+        <!-- Logout Modal structure -->
+        <div id="logout-modal" class="logout-modal">
+            <div class="logout-modal-content">
+                <span class="logout-close">&times;</span>
+                <p>Are you sure you want to log out?</p>
+                <div class="logout-modal-buttons">
+                    <button id="cancel-logout-btn" class="btn-cancel">Cancel</button>
+                    <button id="confirm-logout-btn" class="btn-signout">Sign Out</button>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="profile-content" id="profile-content">
+            <h2>My Profile</h2>
+    
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username">
+            </div>
+    
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+            </div>
+    
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" disabled>
+            </div>
+    
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" disabled>
+            </div>
+    
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob">
+            </div>
+    
+            <div class="save-button">
+                <button id="save-profile-btn">Save</button> <!-- Added ID to button -->
+            </div>            
+        </div>
+
+        <div class="orders-section" id="orders-section" style="display: none;">
+            <h2>My Orders</h2>
+            <div class="orders-tabs">
+                <div class="orders-tab active" id="ongoing-tab">Ongoing</div>
+                <div class="orders-tab" id="previous-tab">Previous</div>
+            </div>
+
+            <div class="orders-content" id="ongoing-content">
+                <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Cart">
+                <p>You don’t have any orders at the moment</p>
+            </div>
+
+            <div class="orders-content" id="previous-content" style="display: none;">
+                <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Cart">
+                <p>No previous orders available</p>
+            </div>
+        </div>
+
+        <div class="expenses-content" id="expenses-content" style="display: none;">
+            <h2>My Expenses</h2>
+            <canvas id="expensesChart"></canvas>
+        </div>
+
+        <div class="change-password-section" id="change-password-section" style="display: none;">
+            <h2>Change Password</h2>
+            <form id="change-password-form">
+                <div class="form-group">
+                    <label for="current-password">Current Password</label>
+                    <input type="password" id="current-password" name="current-password" placeholder="Current Password">
+                </div>
+
+                <div class="form-group">
+                    <label for="new-password">Enter your new password</label>
+                    <input type="password" id="new-password" name="new-password" placeholder="New Password">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm New Password">
+                </div>
+                <div class="password-requirements">
+                    <ul>
+                        <li>8-50 Characters</li>
+                        <li>Upper-case (A-Z) and lower-case (a-z)</li>
+                        <li>At least 1 numeric character (0-9)</li>
+                    </ul>
+                </div>
+                <br>
+                <button type="submit">Change Password</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Toggle sections
+        const profileLink = document.getElementById('profile-link');
+        const allOrdersLink = document.getElementById('all-orders-link');
+        const expensesLink = document.getElementById('expenses-link');
+        const changePasswordLink = document.getElementById('change-password-link');
+
+        const profileContent = document.getElementById('profile-content');
+        const ordersSection = document.getElementById('orders-section');
+        const expensesContent = document.getElementById('expenses-content');
+        const changePasswordSection = document.getElementById('change-password-section');
+
+        profileLink.addEventListener('click', () => {
+            profileContent.style.display = 'block';
+            ordersSection.style.display = 'none';
+            expensesContent.style.display = 'none';
+            changePasswordSection.style.display = 'none';
+        });
+
+        allOrdersLink.addEventListener('click', () => {
+            profileContent.style.display = 'none';
+            ordersSection.style.display = 'block';
+            expensesContent.style.display = 'none';
+            changePasswordSection.style.display = 'none';
+        });
+
+        expensesLink.addEventListener('click', async () => {
+            profileContent.style.display = 'none';
+            ordersSection.style.display = 'none';
+            expensesContent.style.display = 'block';
+            changePasswordSection.style.display = 'none';
+
+            // Fetch and render expenses data when 'My Expenses' is clicked
+            const expensesData = await fetchExpenses();
+            renderExpensesChart(expensesData);
+        });
+
+        changePasswordLink.addEventListener('click', () => {
+            profileContent.style.display = 'none';
+            ordersSection.style.display = 'none';
+            expensesContent.style.display = 'none';
+            changePasswordSection.style.display = 'block';
+        });
+
+
+            // Function to fetch user data and display it on the account page
+            async function fetchUserData() {
+    try {
+        const response = await fetch('/api/user');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const userData = await response.json();
+        
+        // Debugging lines to ensure elements are found
+        console.log(document.getElementById('username')); // Check username field
+        console.log(document.getElementById('name')); // Check name field
+        console.log(document.getElementById('email')); // Check email field
+        console.log(document.getElementById('phone')); // Check phone field
+        console.log(document.getElementById('username-display')); // Check username display
+
+        // Populate fields with user data
+        document.getElementById('username').value = userData.username; // Populate username
+        document.getElementById('username').setAttribute('data-original-username', userData.username); // Set original username
+        document.getElementById('name').value = userData.name; // Populate name
+        document.getElementById('email').value = userData.email; // Populate email
+        document.getElementById('phone').value = userData.phoneNumber; // Populate phone number
+        document.getElementById('dob').value = userData.dob; // Set the updated date of birth
+        document.getElementById('username-display').textContent = userData.username; // Display username in sidebar
+    } catch (error) {
+        console.error('Error fetching user data:', error);
+        alert('There was a problem fetching your data. Please try again later.');
+    }
+}
+
+
+    // Call the fetchUserData function when the page loads
+    document.addEventListener('DOMContentLoaded', fetchUserData);
+
+
+    document.getElementById('save-profile-btn').addEventListener('click', async function () {
+    const updatedUsername = document.getElementById('username').value.trim();
+    const originalUsername = document.getElementById('username').getAttribute('data-original-username'); // New
+    const updatedName = document.getElementById('name').value.trim();
+    const updatedDob = document.getElementById('dob').value;
+
+    // Front-end validation for empty fields
+    if (!updatedName || !updatedDob) {
+        alert('Please fill out all required fields.');
+        return;
+    }
+
+    // Validate username format (alphanumeric, 3-15 characters) only if it has been changed
+    if (updatedUsername !== originalUsername) {
+        const usernameRegex = /^[a-zA-Z0-9_]{3,15}$/;
+        if (!usernameRegex.test(updatedUsername)) {
+            alert('Username must be alphanumeric and between 3 to 15 characters.');
+            return;
+        }
+
+        try {
+            // Check if the username is already taken
+            const usernameCheckResponse = await fetch(`/api/check-username?username=${encodeURIComponent(updatedUsername)}`);
+            const usernameCheckData = await usernameCheckResponse.json();
+
+            if (!usernameCheckResponse.ok || usernameCheckData.exists) {
+                alert('Username is already taken. Please choose another.');
+                return;
+            }
+        } catch (error) {
+            console.error('Error checking username:', error);
+            alert('There was a problem checking the username. Please try again.');
+            return;
+        }
+    }
+
+    // Proceed with saving profile changes
+    try {
+        const saveResponse = await fetch('/api/update-profile', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: updatedUsername,
+                name: updatedName,
+                dob: updatedDob,
+            }),
+        });
+
+        if (!saveResponse.ok) {
+            throw new Error('Failed to update profile');
+        }
+
+        const result = await saveResponse.json();
+        alert(result.message); // Success message
+        document.getElementById('username-display').textContent = updatedUsername; // Update sidebar username
+
+    } catch (error) {
+        console.error('Error updating profile:', error);
+        alert('There was an error saving your changes.');
+    }
+});
+
+
+
+
+// Get logout modal element and buttons
+const logoutModal = document.getElementById("logout-modal");
+const logoutLink = document.getElementById("logout-link");
+const confirmLogoutBtn = document.getElementById("confirm-logout-btn");
+const cancelLogoutBtn = document.getElementById("cancel-logout-btn");
+const logoutCloseModal = document.querySelector(".logout-close");
+
+// When the logout link is clicked, show the logout modal
+logoutLink.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent the default link behavior
+    logoutModal.style.display = "block"; // Show the logout modal
+});
+
+
+// When the user clicks "No" or the close icon, close the logout modal
+cancelLogoutBtn.addEventListener("click", function () {
+    logoutModal.style.display = "none"; // Hide the logout modal
+});
+
+logoutCloseModal.addEventListener("click", function () {
+    logoutModal.style.display = "none"; // Hide the logout modal
+});
+
+// Close the logout modal if the user clicks anywhere outside of it
+window.addEventListener("click", function (event) {
+    if (event.target == logoutModal) {
+        logoutModal.style.display = "none"; // Hide the logout modal
+    }
+});
+
+// Function to log the user out
+function logoutUser() {
+    fetch('/logout', {
+    method: 'POST', // Assuming POST request for logout
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    })
+    .then(response => {
+    if (response.ok) {
+    // Clear session/localStorage
+    localStorage.clear();
+    sessionStorage.clear();
+    localStorage.removeItem('userLoggedIn');
+
+    // Redirect to index.html
+    window.location.href = '/index.html';
+
+    // Prevent going back to the previous page after logout
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+        window.location.href = '/index.html'; // Always redirect to index.html if back button is pressed
+    };
+    } else {
+        console.error('Logout failed');
+    }
+    })
+    .catch(error => {
+    console.error('Error logging out:', error);
+    });
+
+}
+
+// When the user clicks the "Sign Out" button, log the user out
+confirmLogoutBtn.onclick = function() {
+  logoutUser();
+  hideLogoutModal();
+}
+
+if (!localStorage.getItem('userLoggedIn')) {
+    window.location.href = '/index.html'; // Redirect to login page
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+  fetch('/api/user')
+      .then(response => response.json())
+      .then(user => {
+          if (user.balance !== undefined) {
+              // Update the balance in the navbar
+              document.getElementById('user-balance').textContent = `RM ${user.balance}`;
+          }
+      })
+      .catch(error => {
+          console.error('Error fetching user data:', error);
+      });
+});
+
+
+document.getElementById('ongoing-tab').addEventListener('click', function() {
+    document.getElementById('ongoing-content').style.display = 'block';
+    document.getElementById('previous-content').style.display = 'none';
+    this.classList.add('active');
+    document.getElementById('previous-tab').classList.remove('active');
+});
+
+document.getElementById('previous-tab').addEventListener('click', function() {
+    document.getElementById('previous-content').style.display = 'block';
+    document.getElementById('ongoing-content').style.display = 'none';
+    this.classList.add('active');
+    document.getElementById('ongoing-tab').classList.remove('active');
+});
+
+// Function to fetch and display orders
+async function fetchOrders() {
+    try {
+        const response = await fetch('/api/orders');
+        const orders = await response.json();
+
+        const ongoingContainer = document.getElementById('ongoing-content');
+        const previousContainer = document.getElementById('previous-content');
+
+        // Clear initial messages
+        ongoingContainer.innerHTML = '';
+        previousContainer.innerHTML = '';
+
+        // Check if orders are available
+        const ongoingOrders = orders.filter(order => order.pickupStatus === 'Pending');
+        const previousOrders = orders.filter(order => order.pickupStatus !== 'Pending');
+
+        if (ongoingOrders.length > 0) {
+            ongoingOrders.forEach(order => {
+                ongoingContainer.appendChild(createOrderElement(order));
+            });
+        } else {
+            ongoingContainer.innerHTML = `<p>You don’t have any ongoing orders at the moment</p>`;
+        }
+
+        if (previousOrders.length > 0) {
+            previousOrders.forEach(order => {
+                previousContainer.appendChild(createOrderElement(order));
+            });
+        } else {
+            previousContainer.innerHTML = `<p>No previous orders available</p>`;
+        }
+    } catch (error) {
+        console.error('Error fetching orders:', error);
+    }
+}
+
+// Helper function to create order elements
+function createOrderElement(order) {
+    const orderElement = document.createElement('div');
+    orderElement.classList.add('order-item');
+
+    orderElement.innerHTML = `
+    <div class="order-card">
+    <div class="order-header">
+        <p><strong>Order Date:</strong> ${new Date(order.orderDate).toLocaleDateString()}</p>
+        <p><strong>Pickup Status:</strong> <span class="status ${order.pickupStatus.toLowerCase()}">${order.pickupStatus}</span></p>
+    </div>
+    <div class="order-details">
+        <p><strong>Pickup Location:</strong> ${order.pickupLocation} </p>
+        <p><strong>Pickup Date:</strong> ${new Date(order.pickupDate).toLocaleDateString()}</p>
+        <p><strong>Total Amount:</strong> <span class="total-amount">RM ${order.totalAmount.toFixed(2)}</span></p>
+    </div>
+    <div class="order-products">
+        <h4>Products:</h4>
+        <ul class="product-list">
+            ${order.products.map(product => `
+                <li class="product-item">
+                    <span class="product-name">${product.name} × ${product.quantity}</span>
+                    <span class="product-total">RM ${(product.price * product.quantity).toFixed(2)}</span>
+                </li>
+            `).join('')}
+        </ul>
+    </div>
+</div>
+
+    `;
+    return orderElement;
+}
+
+// Call the fetchOrders function when the page loads
+fetchOrders();
+
+async function fetchExpenses() {
+        try {
+            const response = await fetch('/api/expenses');
+            const expenses = await response.json();
+            console.log("Expenses data:", expenses);  // Log the data to check
+            return expenses;
+        } catch (error) {
+            console.error("Error fetching expenses:", error);
+            return [];
+        }
+    }
+
+    let expensesChartInstance = null;
+
+function renderExpensesChart(expensesData) {
+    const ctx = document.getElementById('expensesChart').getContext('2d');
+
+    // Destroy any existing chart instance on the canvas
+    if (expensesChartInstance) {
+        expensesChartInstance.destroy();
+    }
+
+    // Create a new chart instance
+    expensesChartInstance = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: expensesData.map(data => data._id),
+            datasets: [{
+                label: 'Expenses by Category',
+                data: expensesData.map(data => data.totalSpent),
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                }
+            }
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Fetch the user's expenses data
+    fetch('/api/user-expenses')
+        .then(response => response.json())
+        .then(data => {
+            // Check if data is empty
+            if (Object.keys(data).length === 0) {
+                console.log('No expenses data found');
+                return;
+            }
+
+            // Prepare data for Chart.js
+            const categories = Object.keys(data);
+            const amounts = Object.values(data);
+
+            // Display the pie chart using Chart.js
+            const ctx = document.getElementById('expensesChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: categories,
+                    datasets: [{
+                        data: amounts,
+                        backgroundColor: [
+                            '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Expenses by Category'
+                        }
+                    }
+                }
+            });
+            
+            // Show the expenses-content div once the data is loaded
+            document.getElementById("expenses-content").style.display = "block";
+        })
+        .catch(error => console.error('Error fetching user expenses:', error));
+});
+
+    </script>
+
+</body>
+</html>

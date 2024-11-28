@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/bklogo1.png">
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/bingkas.css" rel="stylesheet" type="text/css" media="all" />
+    <title>BINGKAS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+
+        /* Container for About Us and FAQ Sections */
+        .abt-container {
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        /* About Us Section */
+        .about-us {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            transition: transform 0.3s;
+        }
+
+        .about-us:hover {
+            transform: translateY(-5px); /* Animation on hover */
+        }
+
+        .about-us-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .about-us img {
+            border-radius: 10px;
+            max-width: 500px;
+            margin-left: 20px;
+        }
+
+        .about-us h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .about-us p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .faq-section:hover {
+            transform: translateY(-5px); /* Animation on hover */
+        }
+
+        .faq-section h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Accordion Panel Styles */
+        .panel-heading {
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .panel-heading:hover {
+            background-color: #e0e0e0; /* Slightly darker on hover */
+        }
+
+        .panel-title a {
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .panel-body {
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            color: #555;
+            transition: max-height 0.3s ease-in-out;
+        }
+
+        .fa-angle-down {
+            transition: transform 0.3s ease; /* Smooth transition for rotation */
+        }
+
+        .panel-title a.collapsed .fa-angle-down {
+            transform: rotate(180deg); /* Rotate when collapsed */
+        }
+
+        /* Right Side Authentication Links */
+        .auth-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-links a {
+            text-decoration: none;
+            color: black; /* Set font color to black */
+            font-size: 16px;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s ease; /* Smooth transition effect */
+        }
+
+        .auth-links a:hover {
+            color: #e25e36; /* Change color to orange on hover */
+        }
+
+        .auth-links span {
+            color: #333;
+            margin: 0 5px;
+        }
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-us {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .about-us img {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-us {
+                flex-direction: column;
+                align-items: center;
+            }
+            .about-us img {
+                margin-left: 0;
+                margin-top: 15px;
+                width: 100%;
+                max-width: 100%;
+            }
+            .about-us-content {
+                text-align: center;
+            }
+
+            .faq-section h2 {
+                font-size: 20px;
+            }
+            .panel-title a {
+                padding: 10px;
+            }
+            .panel-body {
+                padding: 10px;
+            }
+            .abt-container {
+                width: 100%;
+                padding: 0 15px;
+            }
+}
+
+    </style>
+</head>
+<body>
+<!-- Navbar Section -->
+<div class="navbar">
+    <div class="logo">
+        <a href="index.html">
+            <img src="images/bk.png" alt="Logo">
+        </a>
+    </div>
+
+    <!-- Right Section with Login and Create Account -->
+    <div class="auth-links">
+        <a href="/login" class="login-link">Login</a>
+        <span>|</span>
+        <a href="/checkid" class="create-account-link">Create Account</a>
+    </div>
+</div>
+
+
+
+    <!-- Slideshow Section -->
+    <div class="slideshow-container">
+  
+      <!-- Slides -->
+      <div class="slide">
+        <img src="images/klpic3.png" alt="Slide 1">
+      </div>
+      <div class="slide">
+        <img src="images/klpic21.png" alt="Slide 2">
+      </div>
+      <div class="slide">
+        <img src="images/klpic222.png" alt="Slide 3">
+      </div>
+  
+      <!-- Previous and Next buttons -->
+      <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+      <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+  
+    <div class="dots-container">
+      <span class="dots" onclick="currentSlide(1)"></span>
+      <span class="dots" onclick="currentSlide(2)"></span>
+      <span class="dots" onclick="currentSlide(3)"></span>
+    </div>
+    <div class="abt-container">
+        <div id="about-us-section" class="about-us">
+            <div class="about-us-content">
+                <h2>About Us</h2>
+                <p>BINGKAS (Bantuan Kehidupan Sejahtera Selangor) is an initiative introduced by the Selangor State Government in the Budget presented on 26 November 2021.</p>
+                <p>Recognizing the need to enhance the financial resilience of families in Selangor, especially post-COVID-19, BINGKAS provides RM300 monthly to 30,000 families, aiming to alleviate economic challenges.</p>
+                <p>This initiative helps ease financial burdens, enabling family heads to purchase essential items, including educational materials, thereby improving the quality of life for Selangor citizens.</p>
+            </div>
+            <img src="images/bingkas-pic.png" alt="BINGKAS Image">
+        </div>
+        
+        <div id="faq-section" class="faq-section">
+            <h2>FAQ</h2>
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                What is BINGKAS? <i class="fa fa-angle-down"></i>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            BINGKAS (Bantuan Kehidupan Sejahtera Selangor) is an initiative by the Selangor State Government providing RM300 monthly for basic necessities to families in need.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How can I register for BINGKAS? <i class="fa fa-angle-down"></i>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            You can register for BINGKAS by visiting our registration page and following the provided instructions. Ensure you have all necessary documents ready for verification.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                What are the eligibility criteria for BINGKAS? <i class="fa fa-angle-down"></i>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <ul>
+                                <li>Must be a Malaysian citizen.</li>
+                                <li>Must be born in or have settled in Selangor for more than 15 years.</li>
+                                <li>Registered voters in Selangor.</li>
+                                <li>Families with dependents aged 18 and under.</li>
+                                <li>Household income below RM3000.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                How do I receive the financial assistance? <i class="fa fa-angle-down"></i>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Once approved for BINGKAS, financial assistance will be credited to your registered bank account monthly. Ensure your bank details are accurate during registration.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFive">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                How can I contact BINGKAS support? <i class="fa fa-angle-down"></i>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                        <div class="card-body">
+                            You can contact BINGKAS support through our official website contact form, via email at support@bingkas.my, or by calling our helpline at 1-800-BINGKAS.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reasons to Shop Section -->
+<section class="reasons-section">
+    <h2>Reason to shop with us</h2>
+    <div class="reason-cards">
+        <div class="reason-card">
+            <div class="circle-frame">
+                <img src="images/pick.png" alt="Delivery or collection">
+            </div>
+            <h3>Delivery or collection</h3>
+            <p>Free 7 days a week store collection</p>
+        </div>
+        <div class="reason-card">
+            <div class="circle-frame">
+                <img src="images/handle.png" alt="Handled with care">
+            </div>
+            <h3>Handled with care</h3>
+            <p>Great quality products picked and packed with care</p>
+        </div>
+        <div class="reason-card">
+            <div class="circle-frame">
+                <img src="images/fresh.png" alt="Freshness guarantee">
+            </div>
+            <h3>Freshness guarantee</h3>
+            <p>We only pick the freshest groceries</p>
+        </div>
+        <div class="reason-card">
+            <div class="circle-frame">
+                <img src="images/price.png" alt="Brand guarantee">
+            </div>
+            <h3>Price guarantee</h3>
+            <p>Every Ringgit you spend will be worth in both price and quality!</p>
+        </div>
+        <div class="reason-card">
+            <div class="circle-frame">
+                <img src="images/heart.png" alt="My Lotus's points">
+            </div>
+            <h3>Easy to use</h3>
+            <p>Just a click you can get whatever you like</p>
+        </div>
+        <div class="reason-card">
+            <div class="circle-frame">
+                <img src="images/shop.png" alt="Shop on the move">
+            </div>
+            <h3>Shop on the move</h3>
+            <p>Shop with our website wherever you are</p>
+        </div>
+    </div>
+  </section>
+  
+  
+        <!-- Footer Section -->
+        <footer class="footer">
+          <div class="footer-content">
+              <div class="about">
+                  <h4>About BINGKAS</h4>
+                  <ul>
+                      <li><a href="#">Corporate Website</a></li>
+                      <li><a href="#">Benefits</a></li>
+                  </ul>
+              </div>
+              <div class="policies">
+                  <h4>Policies</h4>
+                  <ul>
+                      <li><a href="#">Registration no</a></li>
+                      <li><a href="#">Anti Bribery</a></li>
+                      <li><a href="#">Cheap Sales License</a></li>
+                  </ul>
+              </div>
+              <div class="terms">
+                  <h4>Terms & Conditions</h4>
+                  <ul>
+                      <li><a href="#">Loyalty & Online Shopping</a></li>
+                      <li><a href="#">Privacy Policy</a></li>
+                  </ul>
+              </div>
+              <div class="faqs">
+                  <h4>FAQs</h4>
+                  <ul>
+                      <li><a href="#">BINGKAS Shop Online FAQ</a></li>
+                  </ul>
+              </div>
+              <div class="help">
+                  <h4>Help</h4>
+                  <ul>
+                      <li><a href="#">Pick-up</a></li>
+                      <li><a href="#">Return & Refund</a></li>
+                      <li><a href="#">Privacy Policy</a></li>
+                      <li><a href="#">Terms of Use</a></li>
+                  </ul>
+              </div>
+          </div>
+          
+          <!-- Second Row with Contact Us -->
+          <div class="contact">
+              <h4>Contact Us</h4>
+              <p><a href="mailto:info@selcare.my">info@selcare.my</a></p>
+              <p>1800-22-6600</p>
+          </div>
+      </footer>
+  
+
+    <script src="js/script.js"></script> 
+    <script src="js/bingkas.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const buttons = document.querySelectorAll(".btn-link");
+
+        buttons.forEach(button => {
+            button.addEventListener("click", function () {
+                const icon = this.querySelector(".fa-angle-down");
+                icon.classList.toggle("collapsed"); // Toggle the 'collapsed' class to manage rotation
+            });
+        });
+
+    </script>
+</body>
+</html>

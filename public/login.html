@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/bklogo1.png">
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/bingkas.css" rel="stylesheet" type="text/css" media="all" />
+    <title>BINGKAS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+
+        /* Base styles */
+        * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Helvetica Neue', Arial, sans-serif;
+                background-color: #f5f5f5;
+            }
+
+            /* Navbar container */
+            .navbar {
+                display: flex;
+                justify-content: space-between; /* Distributes space between logo and auth links */
+                align-items: center;
+                background-color: white;
+                padding: 20px; /* Adjust padding for spacing */
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                width: 100%; /* Full width of the viewport */
+                height: 76px;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+
+            /* Logo section */
+            .navbar .logo {
+                margin-right: auto; /* Push the logo to the far left */
+            }
+
+            .navbar .logo img {
+                height: 60px; /* Adjust the height of the logo */
+            }
+
+            /* Auth links section */
+            .auth-links {
+                display: flex;
+                margin-left: auto; /* Push the auth-links to the far right */
+                align-items: center;
+            }
+
+            .auth-links a {
+                text-decoration: none;
+                color: black;
+                font-size: 16px;
+                margin: 0 10px;
+                font-weight: bold;
+                transition: color 0.3s ease;
+            }
+
+            .auth-links a:hover {
+                color: orange; /* Change color to orange on hover */
+            }
+
+            .auth-links span {
+                color: #333;
+                margin: 0 5px;
+            }
+
+                    /* Login Page Styles */
+                    .wrapper {
+                        background: #fff;
+                        border-radius: 15px;
+                        box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+                        padding: 20px;
+                        background: #f9f9f9;
+                        margin: 5px auto;
+                    }
+
+                    .wrapper .title {
+                        text-align: center;
+                        font-size: 24px;
+                        margin-bottom: 20px;
+                    }
+
+                    .image-container {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        width: 100%;
+                    }
+
+                    .image-container img {
+                        max-width: 50%;
+                        margin-bottom: 5px;
+                        height: auto;
+                    }
+
+                    .image-container p {
+                        text-align: center;
+                        padding: 10px 15px 0px 15px;
+                        font-size: 15px;
+                        color: #333;
+                    }
+
+                    .wrapper .field {
+                        margin-bottom: 15px;
+                    }
+
+                    .wrapper .field label {
+                        display: block;
+                        margin-bottom: 5px;
+                    }
+
+                    .wrapper .field input[type="text"],
+                    .wrapper .field input[type="password"],
+                    .wrapper .field input[type="submit"] {
+                        width: 100%;
+                        padding: 10px;
+                        border: 1px solid #ddd;
+                        border-radius: 4px;
+                    }
+
+                    .error-message {
+                        color: red;
+                        margin-top: 10px;
+                    }
+
+                    .otp-message {
+                        color: green;
+                        margin-top: 10px;
+                    }
+                    .wrapper{
+                        margin-top: 30px;
+                        width: 700px;
+                        height: 580px;
+                        background: #fff;
+                        border-radius: 15px;
+                        box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+                    }
+                    .wrapper .title{
+                        font-size: 30px;
+                        font-weight: 600;
+                        text-align: center;
+                        line-height: 100px;
+                        color: #fff;
+                        user-select: none;
+                        border-radius: 15px 15px 0 0;
+                        background: linear-gradient(-135deg, #d34522, #f2a622);
+                    }
+                    .wrapper form{
+                        padding: 10px 30px 50px 30px;
+                    }
+                    .wrapper form .field{
+                        height: 50px;
+                        width: 100%;
+                        margin-top: 20px;
+                        position: relative;
+                    }
+                    .wrapper form .field input{
+                        height: 100%;
+                        width: 100%;
+                        outline: none;
+                        font-size: 17px;
+                        padding-left: 20px;
+                        border: 1px solid lightgrey;
+                        border-radius: 25px;
+                        transition: all 0.3s ease;
+                    }
+                    .wrapper form .field input:focus,
+                    form .field input:valid{
+                        border-color: #4158d0;
+                    }
+                    .wrapper form .field label{
+                        position: absolute;
+                        top: 50%;
+                        left: 20px;
+                        color: #999999;
+                        font-weight: 400;
+                        font-size: 17px;
+                        pointer-events: none;
+                        transform: translateY(-50%);
+                        transition: all 0.3s ease;
+                    }
+                    form .field input:focus ~ label,
+                    form .field input:valid ~ label{
+                        top: 0%;
+                        font-size: 16px;
+                        color: #d34522;
+                        background: #fff;
+                        transform: translateY(-50%);
+                    }
+                    form .content{
+                        display: flex;
+                        width: 100%;
+                        height: 50px;
+                        font-size: 16px;
+                        align-items: center;
+                        justify-content: space-around;
+                    }
+                    form .content .checkbox{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    form .content input{
+                        width: 15px;
+                        height: 15px;
+                        background: red;
+                    }
+                    form .content label{
+                        color: #262626;
+                        user-select: none;
+                        padding-left: 5px;
+                    }
+                    form .content .pass-link{
+                        color: "";
+                    }
+                    form .field input[type="submit"]{
+                        color: #fff;
+                        border: none;
+                        padding-left: 0;
+                        margin-top: -10px;
+                        font-size: 20px;
+                        font-weight: 500;
+                        cursor: pointer;
+                        background: linear-gradient(-135deg, #d34522, #f2a622);
+                        transition: all 0.3s ease;
+                    }
+
+                    .button-custom {
+                        color: #fff;
+                        border: none;
+                        padding: 10px 20px;
+                        font-size: 20px;
+                        font-weight: 500;
+                        cursor: pointer;
+                        border-radius: 25px;
+                        background: linear-gradient(-135deg, #d34522, #f2a622);
+                        transition: all 0.3s ease;
+                        outline: none;
+                        box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+                    }
+
+                    .button-custom:active {
+                        transform: scale(0.95);
+                    }
+
+                    .field.center-align {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+
+                    form .field input[type="submit"]:active{
+                        transform: scale(0.95);
+                    }
+                    form .signup-link{
+                        color: #262626;
+                        margin-top: 20px;
+                        text-align: center;
+                    }
+                    form .pass-link a,
+                    form .signup-link a{
+                        color: #4158d0;
+                        text-decoration: none;
+                    }
+                    form .pass-link a:hover,
+                    form .signup-link a:hover{
+                        text-decoration: underline;
+                    }
+                       
+                    @media only screen and (max-width: 768px) {
+    /* Adjust navbar padding for smaller screens */
+
+
+    /* Wrapper adjustments for mobile */
+    .wrapper {
+        width: 90%; /* Use percentage for fluid width */
+        margin-top: 20px;
+        padding: 15px;
+        height: auto; /* Adjust height automatically */
+    }
+
+    /* Adjust image container for smaller screens */
+    .image-container img {
+        max-width: 80%; /* Increase relative image size */
+    }
+
+    .wrapper .title {
+        font-size: 22px; /* Smaller title on mobile */
+    }
+
+    /* Adjust input fields for mobile */
+    .wrapper .field input {
+        padding: 8px;
+        font-size: 15px;
+    }
+
+    /* Adjust button size */
+    .button-custom {
+        font-size: 16px; /* Smaller button text */
+        padding: 8px 16px;
+    }
+
+    /* Hide unnecessary shadows on smaller screens */
+    .wrapper {
+        box-shadow: none;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <div class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/bk.png" alt="Logo">
+            </a>
+        </div>
+
+        <!-- Right Section with Login and Create Account -->
+        <div class="auth-links">
+            <a href="/login" class="login-link">Login</a>
+            <span>|</span>
+            <a href="/checkid" class="create-account-link">Create Account</a>
+        </div>
+    </div>
+
+    <!-- Login Section -->
+    <div class="wrapper">
+        <div class="title">Login</div>
+
+        <div class="image-container">
+            <img src="images/bk.png" alt="bks">
+            <p>Login to your account, remember to check your email for verification purposes!</p>
+        </div>
+
+        <form id="loginForm" action="/login" method="POST">
+            <div class="field">
+                <input type="text" id="idNumber" name="idNumber" required>
+                <label for="idNumber">ID Number</label>
+            </div>
+
+            <div class="field">
+                <input type="password" id="password" name="password" required>
+                <label for="password">Password</label>
+            </div>
+
+            <div id="error-message" class="error-message"></div>
+
+            <div class="field center-align">
+                <button class="button-custom" type="button" id="requestOtpButton">Request OTP</button>
+            </div>
+        </form>
+
+        <form id="otpForm" action="/verifyLoginOTP" method="POST" style="display:none;">
+            <div id="otp-message" class="otp-message"></div>
+            <div class="field">
+                <input type="text" id="otp" name="otp" required>
+                <label for="otp">OTP</label>
+                <input type="hidden" id="otpEmail" name="email">
+            </div>
+
+            <div class="field">
+                <input type="submit" value="Verify OTP">
+            </div>
+        </form>
+    </div>
+
+
+    <script>
+        document.getElementById('requestOtpButton').addEventListener('click', async () => {
+        const idNumber = document.getElementById('idNumber').value;
+        const password = document.getElementById('password').value;
+
+        if (!idNumber || !password) {
+            document.getElementById('error-message').textContent = 'Please enter ID Number and Password.';
+            return;
+        }
+
+        // Disable the button to prevent multiple requests
+        const requestOtpButton = document.getElementById('requestOtpButton');
+        requestOtpButton.disabled = true;
+        requestOtpButton.textContent = 'Loading';
+
+        try {
+            const response = await fetch('/requestLoginOTP', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ idNumber, password }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                localStorage.setItem('userLoggedIn', true);
+                document.getElementById('otp-message').textContent = `OTP has been sent to your email (${data.maskedEmail}).`;
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('otpForm').style.display = 'block';
+                document.getElementById('otpEmail').value = data.email;
+            } else {
+                document.getElementById('error-message').textContent = data.message;
+                // Re-enable the button on error
+                requestOtpButton.disabled = false;
+                requestOtpButton.textContent = 'Request OTP';
+            }
+        } catch (error) {
+            document.getElementById('error-message').textContent = 'An error occurred. Please try again.';
+            // Re-enable the button on error
+            requestOtpButton.disabled = false;
+            requestOtpButton.textContent = 'Request OTP';
+        }
+    });
+    </script>
+</body>

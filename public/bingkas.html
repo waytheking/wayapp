@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/bklogo1.png">
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/bingkas.css" rel="stylesheet" type="text/css" media="all" />
+  <title>BINGKAS</title>
+</head>
+
+<body>
+  <!-- Navbar Section -->
+  <div class="navbar">
+    <div class="logo">
+      <a href="bingkas.html">
+          <img src="images/bk.png" alt="Logo">
+      </a>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="search-left-icon">
+        <path d="M10 2a8 8 0 016.32 12.906l4.387 4.387-1.415 1.415-4.387-4.387A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z" />
+        </svg>
+        <input type="text" id="search-input" placeholder="What are you looking for?">
+    </div>
+  
+    <!-- Icons -->
+    <div class="icons">
+
+      <div class="location-icon">
+        <span id="selectStore">Select Store</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" id="locationIcon">
+          <path d="M12 2a7 7 0 017 7c0 4.243-5.02 10.257-6.36 11.74a.995.995 0 01-1.28 0C10.02 19.257 5 13.243 5 9a7 7 0 017-7zm0 2a5 5 0 00-5 5c0 2.692 2.94 6.942 5 9.292C14.06 15.942 17 11.692 17 9a5 5 0 00-5-5zm0 3a2 2 0 110 4 2 2 0 010-4z"/>
+        </svg>
+      </div>
+        
+
+      <!-- Shopping Bag Icon with Product Count Badge -->
+        <a href="cart.html" class="cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M12 2a4 4 0 014 4h2.5a2.5 2.5 0 012.495 2.336L21 8.5v11a2.5 2.5 0 01-2.336 2.495L18.5 22h-13a2.5 2.5 0 01-2.495-2.336L3 19.5v-11A2.5 2.5 0 015.336 6.005L5.5 6H8a4 4 0 014-4zm7 6H5.5a.5.5 0 00-.492.41L5 8.5v11a.5.5 0 00.41.492l.09.008h13a.5.5 0 00.492-.41L19 19.5V8z"/>
+            </svg>
+            <!-- Badge for showing the product count -->
+            <span class="cart-count">0</span>
+        </a>
+  
+
+      <!-- User Icon -->
+    <div class="user-icon">
+      <span id="user-balance" class="balance-amount">RM 0</span>
+      <a href="account.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path d="M12 2a7 7 0 11-.001 14.001A7 7 0 0112 2zm0 2a5 5 0 100 10 5 5 0 000-10zM4.75 16h14.5c.414 0 .75.336.75.75v1.75c0 2.071-3.048 3.5-8 3.5s-8-1.429-8-3.5v-1.75c0-.414.336-.75.75-.75z" />
+        </svg>
+      </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Slideshow Section -->
+  <div class="slideshow-container">
+
+    <!-- Slides -->
+    <div class="slide">
+      <img src="images/klpic3.png" alt="Slide 1">
+    </div>
+    <div class="slide">
+      <img src="images/klpic21.png" alt="Slide 2">
+    </div>
+    <div class="slide">
+      <img src="images/klpic222.png" alt="Slide 3">
+    </div>
+
+    <!-- Previous and Next buttons -->
+    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+  </div>
+
+  <div class="dots-container">
+    <span class="dots" onclick="currentSlide(1)"></span>
+    <span class="dots" onclick="currentSlide(2)"></span>
+    <span class="dots" onclick="currentSlide(3)"></span>
+  </div>
+
+<!-- Popular Categories Section -->
+<div class="container">
+  <h1 class="heading">Popular Categories</h1>
+  <div class="categories-wrapper">
+    <!-- First Row -->
+    <div class="category-item" onclick="filterProducts('Rice')">
+      <div class="image-wrapper">
+        <img src="images/1.1.png" alt="Category 1" class="image">
+      </div>
+      <div class="title">Rice</div>
+    </div>
+    <div class="category-item" onclick="filterProducts('Vegetables')"> 
+      <div class="image-wrapper">
+        <img src="images/2.1.png" alt="Category 2" class="image">
+      </div>
+      <div class="title">Vegetables</div>
+    </div>
+    <div class="category-item" onclick="filterProducts('Fruits')">
+      <div class="image-wrapper">
+        <img src="images/3.1.png" alt="Category 3" class="image">
+      </div>
+      <div class="title">Fruits</div>
+    </div>
+    <div class="category-item" onclick="filterProducts('Meat and Poultry')">
+      <div class="image-wrapper">
+        <img src="images/4.1.png" alt="Category 4" class="image">
+      </div>
+      <div class="title">Meat and Poultry</div>
+    </div>
+    <div class="category-item" onclick="filterProducts('Fish and Seafood')">
+      <div class="image-wrapper">
+        <img src="images/5.1.png" alt="Category 5" class="image">
+      </div>
+      <div class="title">Fish and Seafood</div>
+    </div>
+    <div class="category-item" onclick="filterProducts('Bread')">
+      <div class="image-wrapper">
+        <img src="images/6.1.png" alt="Category 6" class="image">
+      </div>
+      <div class="title">Bread</div>
+    </div>
+    <div class="category-item" onclick="filterProducts('Cooking Oil')">
+      <div class="image-wrapper">
+        <img src="images/7.1.png" alt="Category 7" class="image">
+      </div>
+      <div class="title">Cooking Oil</div>
+    </div>
+    <div class="category-item" onclick="filterProducts('Noodle')">
+      <div class="image-wrapper">
+        <img src="images/8.1.png" alt="Category 8" class="image">
+      </div>
+      <div class="title">Noodle</div>
+    </div>
+    
+    <!-- Second Row -->
+    <div class="category-item" onclick="filterProducts('Spice and Seasoning')">
+      <div class="image-wrapper">
+        <img src="images/12.1.png" alt="Category 9" class="image">
+      </div>
+      <div class="title">Spice and Seasoning</div>
+    </div>
+    <div class="category-item" onclick="filterProducts('Biscuit')">
+      <div class="image-wrapper">
+        <img src="images/10.1.png" alt="Category 10" class="image">
+      </div>
+      <div class="title">Biscuit</div>
+    </div>
+    <div class="category-item" onclick="filterProducts('Egg')">
+      <div class="image-wrapper">
+        <img src="images/11.1.png" alt="Category 11" class="image">
+      </div>
+      <div class="title">Egg</div>
+    </div>
+    <div class="category-item" onclick="filterProducts('Flour and Sugar')">
+      <div class="image-wrapper">
+        <img src="images/9.1.png" alt="Category 12" class="image">
+      </div>
+      <div class="title">Flour and Sugar</div>
+    </div>
+    <div class="category-item" onclick="filterProducts('Household products')">
+      <div class="image-wrapper">
+        <img src="images/13.1.png" alt="Category 13" class="image">
+      </div>
+      <div class="title">Household products</div>
+    </div>
+    <div class="category-item" onclick="filterProducts('Baby products')">
+      <div class="image-wrapper">
+        <img src="images/16.1.png" alt="Category 14" class="image">
+      </div>
+      <div class="title">Baby products</div>
+    </div>
+    <div class="category-item" onclick="filterProducts('Medicine')">
+      <div class="image-wrapper">
+        <img src="images/15.1.png" alt="Category 15" class="image">
+      </div>
+      <div class="title">Medicine</div>
+    </div>
+    <div class="category-item" onclick="filterProducts('Books and Stationary')">
+      <div class="image-wrapper">
+        <img src="images/14.1.png" alt="Category 16" class="image">
+      </div>
+      <div class="title">Books and Stationary</div>
+    </div>
+  </div>
+</div>
+
+<!-- Customer favourite Section -->
+  <div class="container">
+    <h1 class="heading">Customers' Favourite</h1>
+  
+    <div class="carousel-container">
+        <button class="carousel-btn left-btn" onclick="moveCarousel(-1)">&#9664;</button>
+        <div class="carousel-track" id="carouselTrack">
+            <!-- Product cards will be populated here -->
+        </div>
+        <button class="carousel-btn right-btn" onclick="moveCarousel(1)">&#9654;</button>
+    </div>
+
+    <!-- Indicator Dots -->
+    <div class="indicator-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</div>
+
+<!-- All product Section -->
+<div class="allproduct-container">
+  <div class="header">
+    <h1 class="heading-tittle">
+        All Products
+        <span class="cancel-filter" onclick="resetFilter()" style="display: none;">&times;</span>
+    </h1>
+
+      <div class="dropdown">
+          <div class="dropdown-select">
+              Featured
+          </div>
+          <div class="dropdown-content">
+              <a href="#" data-value="Featured">Featured</a>
+              <a href="#" data-value="Alphabetically, A-Z">Alphabetically, A-Z</a>
+              <a href="#" data-value="Price, low to high">Price, low to high</a>
+              <a href="#" data-value="Alphabetically, Z-A">Alphabetically, Z-A</a>
+              <a href="#" data-value="Price, high to low">Price, high to low</a>
+          </div>
+      </div>
+  </div>
+
+  <div class="all-product-grid" id="allproduct-container">
+      <!-- Product Cards will be dynamically inserted here -->
+  </div>
+
+  <div class="pagination" id="pagination-container">
+      <!-- Pagination buttons will be dynamically inserted here -->
+  </div>
+</div>
+
+
+<!-- Reasons to Shop Section -->
+<section class="reasons-section">
+  <h2>Reason to shop with us</h2>
+  <div class="reason-cards">
+      <div class="reason-card">
+          <div class="circle-frame">
+              <img src="images/pick.png" alt="Delivery or collection">
+          </div>
+          <h3>Delivery or collection</h3>
+          <p>Free 7 days a week store collection</p>
+      </div>
+      <div class="reason-card">
+          <div class="circle-frame">
+              <img src="images/handle.png" alt="Handled with care">
+          </div>
+          <h3>Handled with care</h3>
+          <p>Great quality products picked and packed with care</p>
+      </div>
+      <div class="reason-card">
+          <div class="circle-frame">
+              <img src="images/fresh.png" alt="Freshness guarantee">
+          </div>
+          <h3>Freshness guarantee</h3>
+          <p>We only pick the freshest groceries</p>
+      </div>
+      <div class="reason-card">
+          <div class="circle-frame">
+              <img src="images/price.png" alt="Brand guarantee">
+          </div>
+          <h3>Price guarantee</h3>
+          <p>Every Ringgit you spend will be worth in both price and quality!</p>
+      </div>
+      <div class="reason-card">
+          <div class="circle-frame">
+              <img src="images/heart.png" alt="My Lotus's points">
+          </div>
+          <h3>Easy to use</h3>
+          <p>Just a click you can get whatever you like</p>
+      </div>
+      <div class="reason-card">
+          <div class="circle-frame">
+              <img src="images/shop.png" alt="Shop on the move">
+          </div>
+          <h3>Shop on the move</h3>
+          <p>Shop with our website wherever you are</p>
+      </div>
+  </div>
+</section>
+
+
+
+  <!-- Modal -->
+  <div id="locationModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Welcome!</h2>
+      <p>Please set your pick up area</p>
+      <input type="text" id="postcodeInput" placeholder="Key in your Postcode">
+      <button id="searchButton">Search</button>
+      <div id="resultsContainer"></div> <!-- Container for displaying results -->
+    </div>
+  </div>
+
+      <!-- Footer Section -->
+      <footer class="footer">
+        <div class="footer-content">
+            <div class="about">
+                <h4>About BINGKAS</h4>
+                <ul>
+                    <li><a href="#">Corporate Website</a></li>
+                    <li><a href="#">Benefits</a></li>
+                </ul>
+            </div>
+            <div class="policies">
+                <h4>Policies</h4>
+                <ul>
+                    <li><a href="#">Registration no</a></li>
+                    <li><a href="#">Anti Bribery</a></li>
+                    <li><a href="#">Cheap Sales License</a></li>
+                </ul>
+            </div>
+            <div class="terms">
+                <h4>Terms & Conditions</h4>
+                <ul>
+                    <li><a href="#">Loyalty & Online Shopping</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="faqs">
+                <h4>FAQs</h4>
+                <ul>
+                    <li><a href="#">BINGKAS Shop Online FAQ</a></li>
+                </ul>
+            </div>
+            <div class="help">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">Pick-up</a></li>
+                    <li><a href="#">Return & Refund</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Second Row with Contact Us -->
+        <div class="contact">
+            <h4>Contact Us</h4>
+            <p><a href="mailto:info@selcare.my">info@selcare.my</a></p>
+            <p>1800-22-6600</p>
+        </div>
+    </footer>
+
+<script src="js/script.js"></script> 
+<script src="js/bingkas.js"></script> 
+
+</body>
+</html>

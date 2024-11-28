@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/bklogo1.png">
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/bingkas.css" rel="stylesheet" type="text/css" media="all" />
+  <title>BINGKAS</title>
+	<style>
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Dashboard Container */
+.dashboard-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align the form to the top */
+    min-height: 100vh;
+    padding: 20px;
+    overflow: hidden; /* Prevent scrolling on the entire page */
+}
+
+.dashboard-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Form Container */
+.form-container {
+    flex: 1;
+    padding: 20px;
+    border-right: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0; /* Make it stick to the top */
+    align-self: flex-start; /* Ensure the form stays at the top */
+}
+
+.form-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #4a4a4a;
+}
+
+.add-product-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-product-form input,
+.add-product-form button {
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.add-product-form input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.add-product-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-product-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Product List Container */
+/* Product List Container */
+.product-list-container {
+    flex: 2;
+    padding: 20px;
+    max-height: 80vh; /* Define the height for the scroll area */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+.product-list-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #4a4a4a;
+}
+
+#productList {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-item {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+}
+
+.product-item:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info {
+    color: #777;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icon-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.icon-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.icon-svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s;
+}
+
+.icon-btn:hover .icon-svg {
+    transform: scale(1.1); /* Slight enlarge effect on hover */
+}
+
+
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .form-container, .product-list-container {
+        border: none;
+    }
+}
+
+	</style>
+</head>
+
+<body>
+  
+     <!-- Navbar Section -->
+  <div class="navbar">
+    <div class="logo">
+      <a href="admin-dashboard.html">
+          <img src="images/bk.png" alt="Logo">
+      </a>
+  </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="search-left-icon">
+        <path d="M10 2a8 8 0 016.32 12.906l4.387 4.387-1.415 1.415-4.387-4.387A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z" />
+        </svg>
+        <input type="text" id="search-input" placeholder="What are you looking for?">
+    </div>
+  
+    <!-- Icons -->
+    <div class="icons">
+      <div class="location-icon">
+        <!-- Location Icon with "Select Store" Text -->
+        <span id="selectStore">Select Store</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" id="locationIcon">
+          <path d="M12 2a7 7 0 017 7c0 4.243-5.02 10.257-6.36 11.74a.995.995 0 01-1.28 0C10.02 19.257 5 13.243 5 9a7 7 0 017-7zm0 2a5 5 0 00-5 5c0 2.692 2.94 6.942 5 9.292C14.06 15.942 17 11.692 17 9a5 5 0 00-5-5zm0 3a2 2 0 110 4 2 2 0 010-4z"/>
+        </svg>
+      </div>
+        
+
+      <!-- Shopping Bag Icon with Product Count Badge -->
+        <a href="dashboard.html" class="cart-icon">
+            <img src="images/db.png" alt="Edit" class="icon-svg">
+        </a>
+  
+
+      <!-- User Icon -->
+      <a href="account.html">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path d="M12 2a7 7 0 11-.001 14.001A7 7 0 0112 2zm0 2a5 5 0 100 10 5 5 0 000-10zM4.75 16h14.5c.414 0 .75.336.75.75v1.75c0 2.071-3.048 3.5-8 3.5s-8-1.429-8-3.5v-1.75c0-.414.336-.75.75-.75z" />
+      </svg>
+    </a>
+    </div>
+  </div>
+
+
+    <!-- Wrapper for the dashboard container -->
+    <div class="dashboard-wrapper db-container-fluid">
+        <div class="dashboard-container">
+            <!-- Left Side: Form to Add Product -->
+            <div class="form-container">
+                <h2>Add Product</h2>
+                <form id="addProductForm" class="add-product-form">
+                    <input type="text" id="productName" name="name" placeholder="Product Name" required>
+                    <input type="text" id="productPrice" name="price" placeholder="Product Price" required>
+                    <input type="text" id="productCategory" name="category" placeholder="Product Category" required>
+                    <input type="text" id="productBrand" name="brand" placeholder="Product Brand" required>
+                    <input type="text" id="productImage" name="image" placeholder="Product Image URL" required>
+                    <input type="text" id="productSubcategory" name="subcategory" placeholder="Product Subcategory" required> <!-- New input -->
+                    <button type="submit" class="btn btn-primary">Add Product</button>
+                </form>
+                
+            </div>
+
+            <!-- Right Side: Product Listing -->
+            <div class="product-list-container">
+                <h2>All Products</h2>
+                <div id="productList">
+                    <!-- Product items will be inserted here dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        document.getElementById('addProductForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const productData = {
+                name: document.getElementById('productName').value,
+                price: document.getElementById('productPrice').value,
+                category: document.getElementById('productCategory').value,
+                brand: document.getElementById('productBrand').value,
+                image: document.getElementById('productImage').value,
+                subcategory: document.getElementById('productSubcategory').value // Add subcategory here
+            };
+    
+            const editId = document.getElementById('editProductId')?.value;
+            const url = editId ? `/update-product/${editId}` : '/add-product'; // Remove /api if not used
+            const method = editId ? 'PUT' : 'POST';
+    
+            fetch(url, {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(productData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        alert('Product not found. Please check the ID.');
+                        return;
+                    }
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert(editId ? 'Product updated successfully' : 'Product added successfully');
+                    loadProducts(); // Reload the product list
+                    document.getElementById('addProductForm').reset(); // Reset form fields
+                    const editIdInput = document.getElementById('editProductId');
+                    if (editIdInput) {
+                        editIdInput.remove(); // Remove hidden input if it exists
+                    }
+                    document.getElementById('addProductForm').querySelector('button').innerText = 'Add Product'; // Reset button text
+                } else {
+                    alert('Error saving product');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    
+        function loadProducts() {
+            fetch('/get-products')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(products => {
+                    const productList = document.getElementById('productList');
+                    productList.innerHTML = '';
+                    products.forEach(product => {
+                        const productItem = document.createElement('div');
+                        productItem.className = 'product-list-item';
+                        productItem.innerHTML = `
+                            <div class="product-item">
+                                <div class="product-details">
+                                    <h3>${product.name}</h3>
+                                    <p class="product-info">${product.category} • ${product.brand} • ${product.subcategory}</p>
+                                    <p class="product-price">RM ${product.price}</p>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="btn icon-btn" onclick="editProduct('${product._id}', '${product.name}', '${product.price}', '${product.category}', '${product.brand}', '${product.image}', '${product.subcategory}')">
+                                        <img src="images/edit-pen.svg" alt="Edit" class="icon-svg">
+                                    </button>
+                                    <button class="btn icon-btn" onclick="deleteProduct('${product._id}')">
+                                        <img src="images/dltbtn.png" alt="Delete" class="icon-svg">
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                        productList.appendChild(productItem);
+
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    
+        function editProduct(id, name, price, category, brand, image, subcategory) {
+            document.getElementById('productName').value = name;
+            document.getElementById('productPrice').value = price;
+            document.getElementById('productCategory').value = category;
+            document.getElementById('productBrand').value = brand;
+            document.getElementById('productImage').value = image;
+            document.getElementById('productSubcategory').value = subcategory; // Add this line
+    
+            // Add a hidden field to store the product ID for editing
+            const editIdInput = document.getElementById('editProductId');
+            if (!editIdInput) {
+                const hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.id = 'editProductId';
+                hiddenInput.name = 'editProductId';
+                document.getElementById('addProductForm').appendChild(hiddenInput);
+            }
+            document.getElementById('editProductId').value = id;
+    
+            // Change the button text to 'Update Product'
+            document.getElementById('addProductForm').querySelector('button').innerText = 'Update Product';
+        }
+    
+        function deleteProduct(id) {
+            fetch(`/delete-product/${id}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Product deleted successfully');
+                    loadProducts(); // Reload the product list after deletion
+                } else {
+                    alert('Error deleting product');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    
+        // Load products on page load
+        window.onload = function() {
+            loadProducts();
+        }
+    
+        function signOut() {
+            // Clear any user authentication data from session or local storage
+            sessionStorage.removeItem('userToken'); // Example: if using session storage
+            localStorage.removeItem('userData'); // Example: if using local storage
+    
+            // Redirect the user to the sign-in page or home page after sign out
+            window.location.href = 'index.html'; // Replace 'sign-in.html' with your actual sign-in page URL
+            alert('You have successfully signed out.');
+        }
+    </script>
+</body>
+
+</html>
